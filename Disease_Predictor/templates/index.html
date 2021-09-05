@@ -1,0 +1,541 @@
+{% extends 'base.html' %} {% block title %}
+<title>DISEASE DECTECTOR</title>
+{% endblock title %} {% block body %}
+
+<!-- <div class="container-fluid px-0">
+    <div class="jumbotron text-white bg-dark"> -->
+
+<form method="POST" action="/result">
+    {% csrf_token %}
+
+    <div class="row">
+
+        <!-- body -->
+        <div class="col-sm text-center p-3 py-2">
+            <h3 class="text-center">BODY</h3>
+
+            <input type="checkbox" class="btn-check" value="64" id="btn-64" autocomplete="off" name="64">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-64">DIZZINESS</label>
+
+            <input type="checkbox" class="btn-check" value="67" id="btn-67" autocomplete="off" name="67">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-67">OBESITY</label>
+
+            <input type="checkbox" class="btn-check" value="55" id="btn-55" autocomplete="off" name="55">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-55">CONGESTION</label>
+
+            <input type="checkbox" class="btn-check" value="119" id="btn-119" autocomplete="off" name="119">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-119">PALPITATIONS</label>
+
+            <input type="checkbox" class="btn-check" value="19" id="btn-19" autocomplete="off" name="19">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-19">WEIGHT LOSS</label>
+
+            <input type="checkbox" class="btn-check" value="15" id="btn-15" autocomplete="off" name="15">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-15">WEIGHT GAIN</label>
+
+            <input type="checkbox" class="btn-check" value="5" id="btn-5" autocomplete="off" name="5">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-5">CHILLS</label>
+
+            <input type="checkbox" class="btn-check" value="4" id="btn-4" autocomplete="off" name="4">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-4">SHIVERING</label>
+
+            <input type="checkbox" class="btn-check" value="25" id="btn-25" autocomplete="off" name="25">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-25">HIGH FEVER</label>
+
+            <input type="checkbox" class="btn-check" value="28" id="btn-28" autocomplete="off" name="28">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-28">SWEATING</label>
+
+            <input type="checkbox" class="btn-check" value="29" id="btn-29" autocomplete="off" name="29">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-29">DEHYDRATION</label>
+
+            <input type="checkbox" class="btn-check" value="14" id="btn-14" autocomplete="off" name="14">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-14">FATIGUE</label>
+
+            <input type="checkbox" class="btn-check" value="35" id="btn-35" autocomplete="off" name="35">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-35">LOSS OF APPETITE</label>
+
+            <input type="checkbox" class="btn-check" value="41" id="btn-41" autocomplete="off" name="41">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-41">MILD FEVER</label>
+
+            <input type="checkbox" class="btn-check" value="20" id="btn-20" autocomplete="off" name="20">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-20">RESTLESSNESS</label>
+
+        </div>
+
+        <!-- MUSCLE -->
+        <div class="col-sm text-center p-3 py-2">
+            <h3 class="text-center">MUSCLE</h3>
+
+            <input type="checkbox" class="btn-check" value="97" id="btn-97" autocomplete="off" name="97">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-97">MUSCLE PAIN</label>
+
+            <input type="checkbox" class="btn-check" value="123" id="btn-123" autocomplete="off" name="123">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-123">SCURRING</label>
+
+            <input type="checkbox" class="btn-check" value="57" id="btn-57" autocomplete="off" name="57">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-57">WEAKNESS IN LIMBS</label>
+
+            <input type="checkbox" class="btn-check" value="120" id="btn-120" autocomplete="off" name="120">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-120">PAINFUL WALKING</label>
+
+            <input type="checkbox" class="btn-check" value="96" id="btn-96" autocomplete="off" name="96">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-96">IRRITABILITY</label>
+
+            <input type="checkbox" class="btn-check" value="37" id="btn-37" autocomplete="off" name="37">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-37">BACK PAIN</label>
+
+            <input type="checkbox" class="btn-check" value="10" id="btn-10" autocomplete="off" name="10">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-10">MUSCLE WASTING</label>
+
+            <input type="checkbox" class="btn-check" value="118" id="btn-118" autocomplete="off" name="118">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-118">PROMINENT VEINS ON CALF</label>
+
+            <input type="checkbox" class="btn-check" value="80" id="btn-80" autocomplete="off" name="80">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-80">MUSCLE WEAKNESS</label>
+
+            <input type="checkbox" class="btn-check" value="65" id="btn-65" autocomplete="off" name="65">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-65">CRAMPS</label>
+
+            <input type="checkbox" class="btn-check" value="66" id="btn-66" autocomplete="off" name="66">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-66">BRUISING</label>
+
+        </div>
+
+        <!-- face -->
+        <div class="col-sm text-center p-3 py-2">
+            <h3 class="text-center">FACE</h3>
+
+            <input type="checkbox" class="btn-check" value="121" id="btn-121" autocomplete="off" name="121">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-121">PUS FILLED PIMPLES</label>
+
+            <input type="checkbox" class="btn-check" value="122" id="btn-122" autocomplete="off" name="122">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-122">BLACKHEADS</label>
+
+            <input type="checkbox" class="btn-check" value="9" id="btn-9" autocomplete="off" name="9">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-9">ULCERS ON TONGUE</label>
+
+            <input type="checkbox" class="btn-check" value="129" id="btn-129" autocomplete="off" name="129">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-129">RED SORE AROUND NOSE</label>
+
+            <input type="checkbox" class="btn-check" value="3" id="btn-3" autocomplete="off" name="3">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-3">CONTINUOUS_SNEEZING</label>
+
+            <input type="checkbox" class="btn-check" value="54" id="btn-54" autocomplete="off" name="54">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-54">RUNNY NOSE</label>
+
+            <input type="checkbox" class="btn-check" value="88" id="btn-88" autocomplete="off" name="88">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-88">LOSS OF SMELL</label>
+
+            <input type="checkbox" class="btn-check" value="77" id="btn-77" autocomplete="off" name="77">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-77">SLURRED SPEECH</label>
+
+            <input type="checkbox" class="btn-check" value="76" id="btn-76" autocomplete="off" name="76">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-76">DRYING AND TINGLING LIPS</label>
+
+            <input type="checkbox" class="btn-check" value="125" id="btn-125" autocomplete="off" name="125">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-125">SILVER LIKE DUSTING</label>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <!-- Urination -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">URINATION</h3>
+
+            <input type="checkbox" class="btn-check" value="42" id="btn-42" autocomplete="off" name="42">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-42">YELLOW URINE</label>
+
+            <input type="checkbox" class="btn-check" value="90" id="btn-90" autocomplete="off" name="90">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-90">FOUL SMELL OF URINE</label>
+
+            <input type="checkbox" class="btn-check" value="89" id="btn-89" autocomplete="off" name="89">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-89">BLADDER DISCOMFORT</label>
+
+            <input type="checkbox" class="btn-check" value="13" id="btn-13" autocomplete="off" name="13">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-13">SPOTTING URINATION</label>
+
+            <input type="checkbox" class="btn-check" value="91" id="btn-91" autocomplete="off" name="91">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-91">CONTINUOUS FEEL OF URINE</label>
+
+            <input type="checkbox" class="btn-check" value="33" id="btn-33" autocomplete="off" name="33">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-33">DARK URINE</label>
+
+            <input type="checkbox" class="btn-check" value="12" id="btn-12" autocomplete="off" name="12">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-12">BURNING MICTURITION</label>
+
+        </div>
+
+        <!-- Throat -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">THROAT</h3>
+
+            <input type="checkbox" class="btn-check" value="11" id="btn-11" autocomplete="off" name="11">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-11">VOMITING</label>
+
+            <input type="checkbox" class="btn-check" value="24" id="btn-24" autocomplete="off" name="24">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-24">COUGH</label>
+
+            <input type="checkbox" class="btn-check" value="107" id="btn-107" autocomplete="off" name="107">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-107">MUCOID SPUTUM</label>
+
+            <input type="checkbox" class="btn-check" value="108" id="btn-108" autocomplete="off" name="108">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-108">RUSTY SPUTUM</label>
+
+            <input type="checkbox" class="btn-check" value="117" id="btn-117" autocomplete="off" name="117">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-117">BLOOD IN SPUTUM</label>
+
+            <input type="checkbox" class="btn-check" value="22" id="btn-22" autocomplete="off" name="22">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-22">PATCHES IN THROAT</label>
+
+            <input type="checkbox" class="btn-check" value="51" id="btn-51" autocomplete="off" name="51">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-51">THROAT IRRITATION</label>
+
+            <input type="checkbox" class="btn-check" value="71" id="btn-71" autocomplete="off" name="71">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-71">ENLARGED THYROID</label>
+
+        </div>
+
+        <!-- chest -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">CHEST</h3>
+
+            <input type="checkbox" class="btn-check" value="44" id="btn-44" autocomplete="off" name="44">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-44">ACUTE LIVER FAILURE</label>
+
+            <input type="checkbox" class="btn-check" value="45" id="btn-45" autocomplete="off" name="45">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-45">FLUID OVERLOAD</label>
+
+            <input type="checkbox" class="btn-check" value="58" id="btn-58" autocomplete="off" name="58">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-58">FAST HEART RATE</label>
+
+            <input type="checkbox" class="btn-check" value="53" id="btn-53" autocomplete="off" name="53">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-53">SINUS PRESSURE</label>
+
+            <input type="checkbox" class="btn-check" value="27" id="btn-27" autocomplete="off" name="27">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-27">BREATHLESSNESS</label>
+
+            <input type="checkbox" class="btn-check" value="31" id="btn-31" autocomplete="off" name="31">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-31">HEADACHE</label>
+
+            <input type="checkbox" class="btn-check" value="48" id="btn-48" autocomplete="off" name="48">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-48">MALAISE</label>
+
+            <input type="checkbox" class="btn-check" value="56" id="btn-56" autocomplete="off" name="56">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-56">CHEST PAIN</label>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <!-- other -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">OTHERS</h3>
+
+            <input type="checkbox" class="btn-check" value="99" id="btn-99" autocomplete="off" name="99">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-99">RED SPOTS OVER BODY</label>
+
+            <input type="checkbox" class="btn-check" value="17" id="btn-17" autocomplete="off" name="17">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-17">COLD HANDS AND FEETS</label>
+
+            <input type="checkbox" class="btn-check" value="113" id="btn-113" autocomplete="off" name="113">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-113">COMA</label>
+
+            <input type="checkbox" class="btn-check" value="101" id="btn-101" autocomplete="off" name="101">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-101">ABNORMAL MENSTRUATION</label>
+
+            <input type="checkbox" class="btn-check" value="102" id="btn-102" autocomplete="off" name="102">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-102">DISCHROMIC PATCHES</label>
+
+            <input type="checkbox" class="btn-check" value="130" id="btn-130" autocomplete="off" name="130">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-130">YELLOW CRUST OOZE</label>
+
+            <input type="checkbox" class="btn-check" value="47" id="btn-47" autocomplete="off" name="47">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-47">SWELLED LYMPH NODES</label>
+
+            <input type="checkbox" class="btn-check" value="94" id="btn-94" autocomplete="off" name="94">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-94">TOXIC LOOK (TYPHOS)</label>
+
+        </div>
+
+        <!-- eyes -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">EYES</h3>
+
+            <input type="checkbox" class="btn-check" value="103" id="btn-103" autocomplete="off" name="103">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-103">WATERING FROM EYES</label>
+
+            <input type="checkbox" class="btn-check" value="70" id="btn-70" autocomplete="off" name="70">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-70">PUFFY FACE AND EYES</label>
+
+            <input type="checkbox" class="btn-check" value="26" id="btn-26" autocomplete="off" name="26">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-26">SUNKEN EYES</label>
+
+            <input type="checkbox" class="btn-check" value="36" id="btn-36" autocomplete="off" name="36">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-36">PAIN_BEHIND THE EYES</label>
+
+            <input type="checkbox" class="btn-check" value="49" id="btn-49" autocomplete="off" name="49">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-49">BLURRED AND DISTORTED VISION</label>
+
+            <input type="checkbox" class="btn-check" value="43" id="btn-43" autocomplete="off" name="43">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-43">YELLOWING OF EYES</label>
+
+            <input type="checkbox" class="btn-check" value="52" id="btn-52" autocomplete="off" name="52">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-52">REDNESS OF EYES</label>
+
+            <input type="checkbox" class="btn-check" value="110" id="btn-110" autocomplete="off" name="110">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-110">VISUAL DISTURBANCES</label>
+
+        </div>
+
+        <!-- history -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">HISTORY</h3>
+
+            <input type="checkbox" class="btn-check" value="116" id="btn-116" autocomplete="off" name="116">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-116">HISTORY OF ALCOHOL
+                CONSUMPTION</label>
+
+            <input type="checkbox" class="btn-check" value="23" id="btn-23" autocomplete="off" name="23">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-23">IRREGULAR SUGAR LEVEL</label>
+
+            <input type="checkbox" class="btn-check" value="112" id="btn-112" autocomplete="off" name="112">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-112">RECEIVING UNSTERILE
+                INJECTIONS</label>
+
+            <input type="checkbox" class="btn-check" value="111" id="btn-111" autocomplete="off" name="111">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-111">RECEIVING BLOOD TRANSFUSION</label>
+
+            <input type="checkbox" class="btn-check" value="106" id="btn-106" autocomplete="off" name="106">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-106">FAMILY HISTORY</label>
+
+            <input type="checkbox" class="btn-check" value="69" id="btn-69" autocomplete="off" name="69">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-69">SWOLLEN BLOOD VESSELS</label>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <!-- joints -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">JOINTS</h3>
+
+            <input type="checkbox" class="btn-check" value="68" id="btn-68" autocomplete="off" name="68">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-68">SWOLLEN LEGS</label>
+
+            <input type="checkbox" class="btn-check" value="73" id="btn-73" autocomplete="off" name="73">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-73">SWOLLEN EXTREMETIES</label>
+
+            <input type="checkbox" class="btn-check" value="79" id="btn-79" autocomplete="off" name="79">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-79">HIP JOINT PAIN</label>
+
+            <input type="checkbox" class="btn-check" value="82" id="btn-82" autocomplete="off" name="82">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-82">SWELLING JOINTS</label>
+
+            <input type="checkbox" class="btn-check" value="6" id="btn-6" autocomplete="off" name="6">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-6">JOINT PAIN</label>
+
+            <input type="checkbox" class="btn-check" value="78" id="btn-78" autocomplete="off" name="78">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-78">KNEE PAIN</label>
+
+        </div>
+
+        <!-- BALANCE -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">BALANCE</h3>
+
+            <input type="checkbox" class="btn-check" value="83" id="btn-83" autocomplete="off" name="83">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-83">MOVEMENT STIFFNESS</label>
+
+            <input type="checkbox" class="btn-check" value="85" id="btn-85" autocomplete="off" name="85">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-85">LOSS OF BALANCE</label>
+
+            <input type="checkbox" class="btn-check" value="86" id="btn-86" autocomplete="off" name="86">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-86">UNSTEADINESS</label>
+
+            <input type="checkbox" class="btn-check" value="87" id="btn-87" autocomplete="off" name="87">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-87">WEAKNESS OF ONE BODY SIDE</label>
+
+            <input type="checkbox" class="btn-check" value="98" id="btn-98" autocomplete="off" name="98">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-98">ALTERED SENSORIUM</label>
+
+        </div>
+
+        <!-- pyscho -->
+        <div class="col-sm text-center p-3 py-5">
+
+            <h3 class="text-center">PSYCHOLOGICAL</h3>
+
+            <input type="checkbox" class="btn-check" value="109" id="btn-109" autocomplete="off" name="109">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-109">LACK OF CONCENTRATION</label>
+
+            <input type="checkbox" class="btn-check" value="95" id="btn-95" autocomplete="off" name="95">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-95">DEPRESSION</label>
+
+            <input type="checkbox" class="btn-check" value="21" id="btn-21" autocomplete="off" name="21">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-21">LETHARGY</label>
+
+            <input type="checkbox" class="btn-check" value="84" id="btn-84" autocomplete="off" name="84">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-84">SPINNING MOVEMENTS</label>
+
+            <input type="checkbox" class="btn-check" value="18" id="btn-18" autocomplete="off" name="18">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-18">MOOD SWINGS</label>
+
+            <input type="checkbox" class="btn-check" value="16" id="btn-16" autocomplete="off" name="16">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-16">ANXIETY</label>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <!-- skin -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">SKIN</h3>
+
+            <input type="checkbox" class="btn-check" value="0" id="btn-0" autocomplete="off" name="0">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-0">ITCHING</label>
+
+            <input type="checkbox" class="btn-check" value="1" id="btn-1" autocomplete="off" name="1">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-1">SKIN RASH</label>
+
+            <input type="checkbox" class="btn-check" value="2" id="btn-2" autocomplete="off" name="2">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-2">NODAL SKIN ERUPTIONS</label>
+
+            <input type="checkbox" class="btn-check" value="124" id="btn-124" autocomplete="off" name="124">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-124">SKIN PEELING</label>
+
+            <input type="checkbox" class="btn-check" value="32" id="btn-32" autocomplete="off" name="32">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-32">YELLOWISH SKIN</label>
+
+        </div>
+
+        <!-- nail -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">NAILS</h3>
+
+            <input type="checkbox" class="btn-check" value="126" id="btn-126" autocomplete="off" name="126">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-126">SMALL DENTS IN NAILS</label>
+
+            <input type="checkbox" class="btn-check" value="127" id="btn-127" autocomplete="off" name="127">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-127">INFLAMMATORY NAILS</label>
+
+            <input type="checkbox" class="btn-check" value="72" id="btn-72" autocomplete="off" name="72">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-72">BRITTLE NAILS</label>
+
+        </div>
+
+        <!-- anal -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">ANAL</h3>
+
+            <input type="checkbox" class="btn-check" value="59" id="btn-59" autocomplete="off" name="59">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-59">PAIN DURING BOWEL MOVEMENTS</label>
+
+            <input type="checkbox" class="btn-check" value="62" id="btn-62" autocomplete="off" name="62">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-62">IRRITATION IN ANUS</label>
+
+            <input type="checkbox" class="btn-check" value="60" id="btn-60" autocomplete="off" name="60">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-60">PAIN IN ANAL REGION</label>
+
+            <input type="checkbox" class="btn-check" value="61" id="btn-61" autocomplete="off" name="61">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-61">BLOODY STOOL</label>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <!-- stomach -->
+        <div class="col-sm text-center p-3 py-5">
+            <h3 class="text-center">STOMACH</h3>
+
+            <input type="checkbox" class="btn-check" value="93" id="btn-93" autocomplete="off" name="93">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-93">INTERNAL ITCHING</label>
+
+            <input type="checkbox" class="btn-check" value="92" id="btn-92" autocomplete="off" name="92">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-92">PASSAGE OF GASES</label>
+
+            <input type="checkbox" class="btn-check" value="8" id="btn-8" autocomplete="off" name="8">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-8">ACIDITY</label>
+
+            <input type="checkbox" class="btn-check" value="39" id="btn-39" autocomplete="off" name="39">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-39">ABDOMINAL PAIN</label>
+
+            <input type="checkbox" class="btn-check" value="50" id="btn-50" autocomplete="off" name="50">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-50">PHLEGM</label>
+
+            <input type="checkbox" class="btn-check" value="100" id="btn-100" autocomplete="off" name="100">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-100">BELLY PAIN</label>
+
+            <input type="checkbox" class="btn-check" value="30" id="btn-30" autocomplete="off" name="30">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-30">INDIGESTION</label>
+
+            <input type="checkbox" class="btn-check" value="104" id="btn-104" autocomplete="off" name="104">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-104">INCREASED APPETITE</label>
+
+            <input type="checkbox" class="btn-check" value="74" id="btn-74" autocomplete="off" name="74">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-74">EXCESSIVE HUNGER</label>
+
+            <input type="checkbox" class="btn-check" value="40" id="btn-40" autocomplete="off" name="40">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-40">DIARRHOEA</label>
+
+            <input type="checkbox" class="btn-check" value="38" id="btn-38" autocomplete="off" name="38">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-38">CONSTIPATION</label>
+
+            <input type="checkbox" class="btn-check" value="34" id="btn-34" autocomplete="off" name="34">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-34">NAUSEA</label>
+
+            <input type="checkbox" class="btn-check" value="105" id="btn-105" autocomplete="off" name="105">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-105">POLYURIA</label>
+
+            <input type="checkbox" class="btn-check" value="46" id="btn-46" autocomplete="off" name="46">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-46">SWELLING OF STOMACH</label>
+
+            <input type="checkbox" class="btn-check" value="7" id="btn-7" autocomplete="off" name="7">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-7">STOMACH PAIN</label>
+
+            <input type="checkbox" class="btn-check" value="114" id="btn-114" autocomplete="off" name="114">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-114">STOMACH BLEEDING</label>
+
+            <input type="checkbox" class="btn-check" value="115" id="btn-115" autocomplete="off" name="115">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-115">DISTENTION OF ABDOMEN</label>
+
+        </div>
+
+        <!-- nape -->
+        <div class="col-3 text-center p-3 py-5">
+            <h3 class="text-center">NAPE</h3>
+
+            <input type="checkbox" class="btn-check" value="63" id="btn-63" autocomplete="off" name="63">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-63">NECK PAIN</label>
+
+            <input type="checkbox" class="btn-check" value="81" id="btn-81" autocomplete="off" name="81">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-81">STIFF NECK</label>
+
+            <input type="checkbox" class="btn-check" value="128" id="btn-128" autocomplete="off" name="128">
+            <label class="btn btn-outline-secondary mx-2 my-1" for="btn-128">BLISTER</label>
+        </div>
+
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-outline-danger my-4 font-weight-bold" type="submit">SUBMIT</button>
+    </div>
+
+</form>
+<!-- </div>
+</div> -->
+{% endblock body %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Doctors</title>
+{% endblock title %}
+
+
+{% block body %}
+
+    <div class="col">
+        <div class="row">
+            <div class="container p-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="container px-4 py-5">
+                <h2 class="pb-2 border-bottom">SPECIALISTS NEAR YOU</h2>
+
+                <div class=" py-4 m-3 text-center">
+                    <img class="d-block mx-auto mb-5 rounded" src="/static/doc.jpg" alt="" width="430" height="300" />
+                </div>
+
+
+                <div class="row g-4  row-cols-1 row-cols-lg-3">
+
+                    <div class="feature col">
+                        <h2>Dr Pratibha Bhooshan </h2>
+                        <p>KIMS Clinic</p>
+                        <p> 21st Lane,Hubli,Karnatak</p>
+                        <a href="#" class="icon-link">Open Location In Maps</a>
+                    </div>
+
+                    <div class="feature col">
+                        <h2>Dr Rajesh Bhatt</h2>
+                        <p>RR Nursing Home</p>
+                        <p>KMK Area, JP street, Bangalore, Karnataka</p>
+                        <a href="#" class="icon-link">Open Location In Maps</a>
+                    </div>
+
+                    <div class="feature col">
+                        <h2>Dr Shivani</h2>
+                        <p>Shivam And Shivani Clinic</p>
+                        <p>Jones Area, Madikeri, Karnataka</p>
+                        <a href="#" class="icon-link">Open Location In Maps</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
